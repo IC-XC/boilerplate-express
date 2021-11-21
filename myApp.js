@@ -7,12 +7,9 @@ app.get("/", function(req, res) {
   res.send("Hello Express");
 });
 
-
-
-app.gett('/', function (req, res) {
-  res.sendFile('__dirname + relativePath/file.ext');
+app.get('/', (req, res) => {
+  response.sendFile(__dirname+"/views/index.html");
 });
-
 
 
 
