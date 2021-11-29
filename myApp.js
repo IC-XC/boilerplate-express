@@ -1,6 +1,11 @@
-
 var express = require('express');
 var app = express();
+
+/* 7) Implement a Root-Level Request Logger Middleware*/
+app.use(function (req, res, next) {
+  console.log(req.method + " " + req.path + " - " + req.ip);
+  next();
+});
 
 /*require('dotenv').config();
 
@@ -8,8 +13,10 @@ npm install dotenv
 const dotenv=require(“dotenv”)
 dotenv.config();*/
 
-const mySecret = process.env['MESSAGE_STYLE'];
-console.log(mySecret);
+/*const mySecret = process.env['MESSAGE_STYLE'];
+console.log(mySecret);*/
+
+
 
 /* 1) Meet the Node console */
 console.log("Hello World");
@@ -47,6 +54,7 @@ message: "Hello json"
 });
 }
 });
+
 
 
 
