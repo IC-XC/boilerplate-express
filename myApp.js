@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 
+
 /* 7) Implement a Root-Level Request Logger Middleware*/
 app.use(function (req, res, next) {
   console.log(req.method + " " + req.path + " - " + req.ip);
@@ -55,10 +56,21 @@ message: "Hello json"
 }
 });
 
+/* 8) Chain Middleware to Create a Time Server */
+app.get(
+  "/now",
+  (req, res, next) => {
+    req.time = new Date().toString();
+    next();
+  },
+  (req, res) => {
+    res.send({
+      time: req.time
+    });
+  }
+);
 
-
-
-
+/* 9) Get Route Parameter Input from the Client */
 
 
 
